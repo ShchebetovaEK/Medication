@@ -4,12 +4,11 @@ import java.time.LocalDate;
 
 public class Drug {
 
-
     private String name;
     private String pharm;
     private String group;
-    private String analogs;
-    private Versions versions;
+    private String analog;
+    private Version version;
     private long number;
     private LocalDate dateOfIssue;
     private LocalDate expirationDate;
@@ -20,22 +19,13 @@ public class Drug {
     private long dosage;
     private String multiplicity;
 
-    public Drug(String name, String pharm, String group, String analogs,
-                Versions versions,
-                long number,
-               LocalDate dateOfIssue,
-                LocalDate expirationDate,
-                String registeringOrganization,
-                String type,
-                int numberpac,
-                long price,
-                long dosage,
-                String multiplicity) {
+    public Drug(String name, String pharm, String group, String analog, Version version, long number, LocalDate dateOfIssue,
+                LocalDate expirationDate, String registeringOrganization, String type, int numberpac, long price, long dosage, String multiplicity) {
         this.name = name;
         this.pharm = pharm;
         this.group = group;
-        this.analogs = analogs;
-        this.versions = versions;
+        this.analog = analog;
+        this.version = version;
         this.number = number;
         this.dateOfIssue = dateOfIssue;
         this.expirationDate = expirationDate;
@@ -71,20 +61,20 @@ public class Drug {
         this.group = group;
     }
 
-    public String getAnalogs() {
-        return analogs;
+    public String getAnalog() {
+        return analog;
     }
 
-    public void setAnalogs(String analogs) {
-        this.analogs = analogs;
+    public void setAnalog(String analog) {
+        this.analog = analog;
     }
 
-    public Versions getVersions() {
-        return versions;
+    public Version getVersion() {
+        return version;
     }
 
-    public void setVersions(Versions versions) {
-        this.versions = versions;
+    public void setVersion(Version version) {
+        this.version = version;
     }
 
     public long getNumber() {
@@ -103,20 +93,20 @@ public class Drug {
         this.dateOfIssue = dateOfIssue;
     }
 
-    public String getRegisteringOrganization() {
-        return registeringOrganization;
-    }
-
-    public void setRegisteringOrganization(String registeringOrganization) {
-        this.registeringOrganization = registeringOrganization;
-    }
-
     public LocalDate getExpirationDate() {
         return expirationDate;
     }
 
     public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public String getRegisteringOrganization() {
+        return registeringOrganization;
+    }
+
+    public void setRegisteringOrganization(String registeringOrganization) {
+        this.registeringOrganization = registeringOrganization;
     }
 
     public String getType() {
@@ -159,15 +149,14 @@ public class Drug {
         this.multiplicity = multiplicity;
     }
 
-
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Drug{");
         sb.append("name='").append(name).append('\'');
         sb.append(", pharm='").append(pharm).append('\'');
         sb.append(", group='").append(group).append('\'');
-        sb.append(", analogs='").append(analogs).append('\'');
-        sb.append(", versions=").append(versions);
+        sb.append(", analog='").append(analog).append('\'');
+        sb.append(", version=").append(version);
         sb.append(", number=").append(number);
         sb.append(", dateOfIssue=").append(dateOfIssue);
         sb.append(", expirationDate=").append(expirationDate);

@@ -4,439 +4,68 @@
         <name>Оспамокс</name>
         <pharm>Сандоз Австрия</pharm>
         <group>Антибиотик</group>
-        <analogs>Амоксикар</analogs>
-        <analogs>Амокси</analogs>
-        <versions>capsule</versions>
-<!--        <certificate>-->
+        <analog>Амоксикар</analog>
+        <version>TABLET</version>
+        <certificate>
             <number>45454544</number>
             <date-Of-Issue>2021-05-01</date-Of-Issue>
             <expirationDate>2026-05-04</expirationDate>
             <registeringOrganization>FDA</registeringOrganization>
-<!--        </certificate>-->
-<!--        <package>-->
+        </certificate>
+        <package>
             <type>Блистер</type>
             <numberpac>10</numberpac>
             <price>1589</price>
-<!--        </package>-->
-<!--        <dosa>-->
+        </package>
+        <dosa>
             <dosage>250</dosage>
             <multiplicity>2 р в день</multiplicity>
-<!--        </dosa>-->
+        </dosa>
     </drug>
     <drug>
         <name>Амоклав</name>
-        <pharm> Палестинфарм </pharm>
-        <group> Антибиотики </group>
-        <analogs> Аугментин </analogs>
-        <versions> tablet  </versions>
-<!--        <certificate>-->
+        <pharm>Палестинфарм</pharm>
+        <group>Антибиотики</group>
+        <analog>Аугментин</analog>
+        <version>CAPSULE</version>
+        <certificate>
             <number>8989</number>
             <date-Of-Issue>2021-05-01</date-Of-Issue>
             <expirationDate>2026-11-01</expirationDate>
             <registeringOrganization>FDA</registeringOrganization>
-<!--        </certificate>-->
-<!--        <package>-->
-            <type> пластинка </type>
+        </certificate>
+        <package>
+            <type>пластинка</type>
             <numberpac>10</numberpac>
-            <price> 1489</price>
-<!--        </package>-->
-<!--        <dosage>-->
+            <price>1489</price>
+        </package>
+        <dosage>
             <dosage>875</dosage>
             <multiplicity>3 р в день</multiplicity>
-<!--        </dosage>-->
+        </dosage>
     </drug>
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-<!---->
-<!--    <drug>-->
-<!--        <name>-->
-<!--        </name>-->
-<!--        <pharm>-->
-<!--        </pharm>-->
-<!--        <group>-->
-<!--        </group>-->
-<!--        <analogs>-->
-<!--        </analogs>-->
-<!--        <versions>-->
-<!--        </versions>-->
-<!--        <certificate>-->
-<!--            <number></number>-->
-<!--            <date_of_issue></date_of_issue>-->
-<!--            <expiration_date></expiration_date>-->
-<!--            <registering_organization></registering_organization>-->
-<!--        </certificate>-->
-<!--        <package>-->
-<!--            <type></type>-->
-<!--            <number></number>-->
-<!--            <price></price>-->
-<!--        </package>-->
-<!--        <dosage>-->
-<!--            <dosage></dosage>-->
-<!--            <multiplicity></multiplicity>-->
-<!--        </dosage>-->
-<!--    </drug>-->
-
+    <!---->
+    <!--    <drug>-->
+    <!--        <name> </name>-->
+    <!--        <pharm> </pharm>-->
+    <!--        <group> </group>-->
+    <!--        <analog> </analog>-->
+    <!--        <version> </version>-->
+    <!--        <certificate>-->
+    <!--            <number></number>-->
+    <!--            <date_of_issue></date_of_issue>-->
+    <!--            <expiration_date></expiration_date>-->
+    <!--            <registering_organization></registering_organization>-->
+    <!--        </certificate>-->
+    <!--        <package>-->
+    <!--            <type></type>-->
+    <!--            <number></number>-->
+    <!--            <price></price>-->
+    <!--        </package>-->
+    <!--        <dosage>-->
+    <!--            <dosage></dosage>-->
+    <!--            <multiplicity></multiplicity>-->
+    <!--        </dosage>-->
+    <!--    </drug>-->
 
 </medicins>

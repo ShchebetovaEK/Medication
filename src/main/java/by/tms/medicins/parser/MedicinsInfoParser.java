@@ -1,7 +1,7 @@
 package by.tms.medicins.parser;
 
 import by.tms.medicins.entity.Drug;
-import by.tms.medicins.entity.Versions;
+import by.tms.medicins.entity.Version;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -27,8 +27,8 @@ public class MedicinsInfoParser extends AbstractParser<Drug> {
             String name = element.getElementsByTagName("name").item(0).getTextContent().trim();
             String pharm = element.getElementsByTagName("pharm").item(0).getTextContent().trim();
             String group = element.getElementsByTagName("group").item(0).getTextContent().trim();
-            String analogs = element.getElementsByTagName("analogs").item(0).getTextContent().trim();
-            String versions = element.getElementsByTagName("versions").item(0).getTextContent().trim();
+            String analog = element.getElementsByTagName("analog").item(0).getTextContent().trim();
+            String version = element.getElementsByTagName("version").item(0).getTextContent().trim();
             String number = element.getElementsByTagName("number").item(0).getTextContent().trim();
             String dateOfIssue = element.getElementsByTagName("date-Of-Issue").item(0).getTextContent().trim();
             String expirationDate = element.getElementsByTagName("expirationDate").item(0).getTextContent().trim();
@@ -38,7 +38,7 @@ public class MedicinsInfoParser extends AbstractParser<Drug> {
             String price = element.getElementsByTagName("price").item(0).getTextContent().trim();
             String dosage = element.getElementsByTagName("dosage").item(0).getTextContent().trim();
             String multiplicity = element.getElementsByTagName("multiplicity").item(0).getTextContent().trim();
-            medicinsList.add(new Drug(name, pharm, group, analogs,Versions.valueOf(versions),
+            medicinsList.add(new Drug(name, pharm, group, analog,Version.valueOf(version),
                     Long.parseLong(number), LocalDate.parse(dateOfIssue), LocalDate.parse(expirationDate),
                     registeringOrganization,type, Integer.parseInt(numberpac), Long.parseLong(price),
                     Long.parseLong(dosage), multiplicity));
