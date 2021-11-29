@@ -39,10 +39,10 @@
             <numberpac>10</numberpac>
             <price>1489</price>
         </package>
-        <dosage>
+        <dosa>
             <dosage>875</dosage>
             <multiplicity>3 р в день</multiplicity>
-        </dosage>
+        </dosa>
     </drug>
     <!---->
     <!--    <drug>-->
