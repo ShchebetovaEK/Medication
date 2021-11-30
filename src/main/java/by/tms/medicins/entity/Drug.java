@@ -19,23 +19,6 @@ public class Drug {
     private long dosage;
     private String multiplicity;
 
-
-
-    public Drug(String name, String pharm, String group, String analog, long number, LocalDate dateOfIssue, String registeringOrganization, String type, int numberpac, long price, long dosage, String multiplicity) {
-        this.name = name;
-        this.pharm = pharm;
-        this.group = group;
-        this.analog = analog;
-        this.number = number;
-        this.dateOfIssue = dateOfIssue;
-        this.registeringOrganization = registeringOrganization;
-        this.type = type;
-        this.numberpac = numberpac;
-        this.price = price;
-        this.dosage = dosage;
-        this.multiplicity = multiplicity;
-    }
-
     public Drug(String name, String pharm, String group, String analog, Version version, long number, LocalDate dateOfIssue,
                 LocalDate expirationDate, String registeringOrganization, String type, int numberpac, long price, long dosage, String multiplicity) {
         this.name = name;
