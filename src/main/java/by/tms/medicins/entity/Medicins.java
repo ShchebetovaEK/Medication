@@ -1,6 +1,5 @@
 package by.tms.medicins.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Medicins {

@@ -14,13 +14,16 @@ public class Drug {
     private LocalDate expirationDate;
     private String registeringOrganization;
     private String type;
-    private int numberpac;
+    private int packageNumber;
     private long price;
     private long dosage;
     private String multiplicity;
 
+    public Drug() {
+    }
+
     public Drug(String name, String pharm, String group, String analog, Version version, long number, LocalDate dateOfIssue,
-                LocalDate expirationDate, String registeringOrganization, String type, int numberpac, long price, long dosage, String multiplicity) {
+                LocalDate expirationDate, String registeringOrganization, String type, int packageNumber, long price, long dosage, String multiplicity) {
         this.name = name;
         this.pharm = pharm;
         this.group = group;
@@ -31,7 +34,7 @@ public class Drug {
         this.expirationDate = expirationDate;
         this.registeringOrganization = registeringOrganization;
         this.type = type;
-        this.numberpac = numberpac;
+        this.packageNumber = packageNumber;
         this.price = price;
         this.dosage = dosage;
         this.multiplicity = multiplicity;
@@ -117,12 +120,12 @@ public class Drug {
         this.type = type;
     }
 
-    public int getNumberpac() {
-        return numberpac;
+    public int getPackageNumber() {
+        return packageNumber;
     }
 
-    public void setNumberpac(int numberpac) {
-        this.numberpac = numberpac;
+    public void setPackageNumber(int packageNumber) {
+        this.packageNumber = packageNumber;
     }
 
     public long getPrice() {
@@ -162,7 +165,7 @@ public class Drug {
         sb.append(", expirationDate=").append(expirationDate);
         sb.append(", registeringOrganization='").append(registeringOrganization).append('\'');
         sb.append(", type='").append(type).append('\'');
-        sb.append(", numberpac=").append(numberpac);
+        sb.append(", packageNumber=").append(packageNumber);
         sb.append(", price=").append(price);
         sb.append(", dosage=").append(dosage);
         sb.append(", multiplicity='").append(multiplicity).append('\'');

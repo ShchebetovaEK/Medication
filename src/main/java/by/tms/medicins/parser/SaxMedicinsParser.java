@@ -1,6 +1,8 @@
 package by.tms.medicins.parser;
 
 import by.tms.medicins.entity.Medicins;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.*;
@@ -9,12 +11,12 @@ import java.io.IOException;
 
 public class SaxMedicinsParser {
 
+    private static final Logger logger = LogManager.getLogger();
     private final String fileName;
 
     public SaxMedicinsParser(String fileName) {
         this.fileName = fileName;
     }
-
 
     public Medicins parse() {
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
@@ -24,21 +26,20 @@ public class SaxMedicinsParser {
         try {
             parser = saxParserFactory.newSAXParser();
         } catch (ParserConfigurationException e) {
-            System.out.println("ops");
+            logger.error("ParserConfigurationException {}", e);
         } catch (SAXException e) {
-            System.out.println("gh");
+            logger.error("SAXException {}", e);
         }
 
-        File file = new File( "C:\\Users\\HP\\IdeaProjects\\Medication\\src\\main\\resources\\Medicins.xml");
+        File file = new File("C:\\Users\\HP\\IdeaProjects\\Medication\\src\\main\\resources\\Medicins.xml");
         try {
-           parser.parse(file,saxParserHandler);
+            parser.parse(file, saxParserHandler);
         } catch (SAXException e) {
-            System.out.println("parse err");
-        }
-        catch (NullPointerException e){
-            System.out.println(e);
+            logger.error("SAXException {}", e);
+        } catch (NullPointerException e) {
+            logger.error("NullPointerException {}", e);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("SAxparser have {}", e);
         }
         return saxParserHandler.getMedicins();
     }

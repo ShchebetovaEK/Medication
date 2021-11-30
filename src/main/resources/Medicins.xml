@@ -8,13 +8,13 @@
         <version>TABLET</version>
         <certificate>
             <number>45454544</number>
-            <date-Of-Issue>2021-05-01</date-Of-Issue>
-            <expirationDate>2026-05-04</expirationDate>
-            <registeringOrganization>FDA</registeringOrganization>
+            <date-of-issue>2021-05-01</date-of-issue>
+            <expiration-date>2026-05-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
         </certificate>
         <package>
             <type>Блистер</type>
-            <numberpac>10</numberpac>
+            <package-number>10</package-number>
             <price>1589</price>
         </package>
         <dosa>
@@ -30,18 +30,18 @@
         <version>CAPSULE</version>
         <certificate>
             <number>8989</number>
-            <date-Of-Issue>2021-05-01</date-Of-Issue>
-            <expirationDate>2026-11-01</expirationDate>
-            <registeringOrganization>FDA</registeringOrganization>
+            <date-of-issue>2021-05-01</date-of-issue>
+            <expiration-date>2026-11-01</expiration-date>
+            <registering-organization>FDA</registering-organization>
         </certificate>
         <package>
-            <type>пластинка</type>
-            <numberpac>10</numberpac>
+            <type>Пластинка</type>
+            <package-number>10</package-number>
             <price>1489</price>
         </package>
         <dosa>
             <dosage>875</dosage>
-            <multiplicity>3 р в день</multiplicity>
+            <multiplicity> 3 р в день</multiplicity>
         </dosa>
     </drug>
     <!---->
@@ -53,13 +53,13 @@
     <!--        <version> </version>-->
     <!--        <certificate>-->
     <!--            <number></number>-->
-    <!--            <date_of_issue></date_of_issue>-->
-    <!--            <expiration_date></expiration_date>-->
-    <!--            <registering_organization></registering_organization>-->
+    <!--            <date-of-issue></date-of-issue>-->
+    <!--            <expiration-date></expiration-date>-->
+    <!--            <registering-organization></registering-organization>-->
     <!--        </certificate>-->
     <!--        <package>-->
     <!--            <type></type>-->
-    <!--            <number></number>-->
+    <!--            <package-number></package-number>-->
     <!--            <price></price>-->
     <!--        </package>-->
     <!--        <dosage>-->
