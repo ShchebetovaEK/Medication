@@ -8,28 +8,28 @@ public enum DrugTag {
     PACKAGE_DRUG,
     DOSA,
     ID,
-    TITLIE,
-    TAG_NAME,
-    TAG_PHARM,
-    TAG_GROUP,
-    TAG_ANALOG,
-    TAG_VERSION,
-    TAG_NUMBER,
-    TAG_DATA_OF_ISSUE,
-    TAG_EXPIRATION_DATE,
-    TAG_REGISTERING_ORGANIZATION,
-    TAG_TYPE,
-    TAG_PACKAGE_NUMBER,
-    TAG_PRICE,
-    TAG_DOSAGE,
-    TAG_MULTIPLICITY,
-    TAG_CHEMICAL_FORMULA,
-    TAG_PLANT;
+    TITLE,
+    DRUG_NAME,
+    PHARM,
+    GROUP,
+    ANALOG,
+    VERSION,
+    NUMBER,
+    DATE_OF_ISSUE,
+    EXPIRATION_DATE,
+    REGISTERING_ORGANIZATION,
+    TYPE,
+    PACKAGE_NUMBER,
+    PRICE,
+    DOSAGE,
+    MULTIPLICITY,
+    CHEMICAL_FORMULA,
+    PLANTS;
 
     private static final char UNDER = '_';
     private static final char HIGH = '-';
 
-    private String getTagName() {
+    public String getTagName() {
         String tagName = this.name();
         tagName = tagName.toLowerCase();
         tagName = tagName.replace(UNDER, HIGH);

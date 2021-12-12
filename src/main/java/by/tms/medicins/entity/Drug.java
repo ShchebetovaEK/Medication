@@ -21,6 +21,9 @@ public abstract class Drug {
     private long dosage;
     private String multiplicity;
 
+    public Drug() {
+    }
+
     public String getId() {
         return id;
     }

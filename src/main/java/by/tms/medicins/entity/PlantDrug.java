@@ -3,6 +3,10 @@ package by.tms.medicins.entity;
 public class PlantDrug extends Drug{
     private String plants;
 
+    public PlantDrug() {
+        super();
+    }
+
     public String getPlants() {
         return plants;
     }

@@ -10,15 +10,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         DomMedicinsParser medicinsInfoParser = new DomMedicinsParser("m.xml");
         List<Drug> drugList = medicinsInfoParser.parse();
         System.out.println(drugList);
-//        SaxMedicinsParser medicinsParser = new SaxMedicinsParser("m.xml");
-//        List<Drug> drugListSax = medicinsParser.parse();
-//        System.out.println(drugListSax);
-
-
+        SaxMedicinsParser medicinsParser = new SaxMedicinsParser("m.xml");
+        List<Drug> drugListSax = medicinsParser.parse();
+        System.out.println(drugListSax);
 
     }
 }

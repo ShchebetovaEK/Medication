@@ -9,25 +9,19 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.List;
-import java.util.Locale;
+
+import static by.tms.medicins.entity.DrugTag.*;
 
 public class SaxParserHandler extends DefaultHandler {
 
     private static final Logger logger = LogManager.getLogger();
     private static final char HIGH = '-';
     private static final char UNDER = '_';
-    private List<Drug> drugList;
+    private List<Drug> drugList = new ArrayList<>();
     private DrugTag currentTag;
-    private Drug currentDrug;
-    private final EnumSet<DrugTag> withText;
+    private Drug currentDrug = new ChemicalDrug();
     private String currentElement;
-
-    public SaxParserHandler() {
-        drugList = new ArrayList<>();
-        withText = EnumSet.range(DrugTag.TAG_NAME, DrugTag.TAG_PLANT);
-    }
 
     public List<Drug> getDrugList() {
         return drugList;
@@ -40,89 +34,74 @@ public class SaxParserHandler extends DefaultHandler {
 
     @Override
     public void endDocument() throws SAXException {
-        logger.info("SaxHandler end read file");
-        getDrugList();
         logger.info(" Drugs in drugList ");
     }
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         currentElement = qName;
-        logger.info("SaxHandler start reading Element {}", qName);
-        String name = qName.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-        if (qName.equals(DrugTag.CHEMICAL_DRUG.toString()) || qName.equals(DrugTag.PLANT_DRUG.toString())) {
-            DrugType drugType = DrugType.valueOf(name);
-            switch (drugType) {
-                case CHEMICAL_DRUG:
-                    currentDrug = new ChemicalDrug();
-                    break;
-                case PLANT_DRUG:
-                    currentDrug = new PlantDrug();
-                    break;
-            }
-            if (attributes.getLength() == 1) {
-                currentDrug.setId(attributes.getValue(0));
-                currentDrug.setTitle(attributes.getValue(0));
-            } else {
-                int idAttributeIndex = attributes.getLocalName(0).equals(DrugTag.ID.toString()) ? 0 : 1;
-                currentDrug.setId(attributes.getValue(idAttributeIndex));
-            }
-        } else {
-            DrugTag temp = DrugTag.valueOf(name);
-            if (withText.contains(temp)) {
-                currentTag = temp;
-            }
+
+        if (currentElement.equals("chemical-drug")) {
+            currentDrug = new ChemicalDrug();
+            currentDrug.setId(attributes.getValue(ID.getTagName()));
+            currentDrug.setTitle(attributes.getValue(TITLE.getTagName()));
+            logger.info("chemical drug {}",currentDrug.getId());
+        } else if (currentElement.equals("plant-drug")) {
+            currentDrug = new PlantDrug();
+            currentDrug.setId(attributes.getValue(ID.getTagName()));
+            currentDrug.setTitle(attributes.getValue(TITLE.getTagName()));
+            logger.info("plant {}",currentDrug.getId());
         }
     }
 
-
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-
-        if (qName.equals(DrugType.CHEMICAL_DRUG.toString()) || qName.equals(DrugType.PLANT_DRUG.toString())) {
+        if (qName.equals(CHEMICAL_DRUG.getTagName()) || qName.equals(PLANT_DRUG.getTagName())) {
             drugList.add(currentDrug);
-            currentDrug = null;
         }
     }
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-        logger.info("very good");
-        String data = new String(ch, start, length).strip();
-        if (currentElement.equals(currentTag.TAG_NAME)) {
-            currentDrug.setName(data);
-
-        } else if (currentElement.equals(currentTag.TAG_PHARM)) {
-            currentDrug.setPharm(data);
-        } else if (currentElement.equals(currentTag.TAG_GROUP)) {
-            currentDrug.setGroup(data);
-        } else if (currentElement.equals(currentTag.TAG_ANALOG)) {
-            currentDrug.setAnalog(data);
-        } else if (currentElement.equals(currentTag.TAG_VERSION)) {
-            currentDrug.setVersion(Version.valueOf(data));
-        } else if (currentElement.equals(currentTag.TAG_PACKAGE_NUMBER)) {
-            currentDrug.setPackageNumber(Integer.parseInt(data));
-        } else if (currentElement.equals(currentTag.TAG_DATA_OF_ISSUE)) {
-            currentDrug.setDateOfIssue(LocalDate.parse(data));
-        } else if (currentElement.equals(currentTag.TAG_EXPIRATION_DATE)) {
-            currentDrug.setExpirationDate(LocalDate.parse(data));
-        } else if (currentElement.equals(currentTag.TAG_REGISTERING_ORGANIZATION)) {
-            currentDrug.setRegisteringOrganization(data);
-        } else if (currentElement.equals(currentTag.TAG_TYPE)) {
-            currentDrug.setType(data);
-        } else if (currentElement.equals(currentTag.TAG_PRICE)) {
-            currentDrug.setPrice(Long.parseLong(data));
-        } else if (currentElement.equals(currentTag.TAG_DOSAGE)) {
-            currentDrug.setDosage(Long.parseLong(data));
-        } else if (currentElement.equals(currentTag.TAG_MULTIPLICITY)) {
-            currentDrug.setMultiplicity(data);
-
+        String data = new String(ch, start, length).replace("\n", "").strip();
+        if (!data.isEmpty()) {
+            if (currentElement.equals(DrugTag.DRUG_NAME.getTagName())) {
+                currentDrug.setName(data);
+            } else if (currentElement.equals(DrugTag.PHARM.getTagName())) {
+                currentDrug.setPharm(data);
+            } else if (currentElement.equals(DrugTag.GROUP.getTagName())) {
+                currentDrug.setGroup(data);
+            } else if (currentElement.equals(DrugTag.ANALOG.getTagName())) {
+                currentDrug.setAnalog(data);
+            } else if (currentElement.equals(DrugTag.VERSION.getTagName())) {
+                currentDrug.setVersion(Version.valueOf(data));
+            } else if (currentElement.equals(DrugTag.NUMBER.getTagName())) {
+                currentDrug.setNumber(Integer.parseInt(data));
+            } else if (currentElement.equals(DrugTag.PACKAGE_NUMBER.getTagName())) {
+                currentDrug.setPackageNumber(Integer.parseInt(data));
+            } else if (currentElement.equals(DATE_OF_ISSUE.getTagName())) {
+                currentDrug.setDateOfIssue(LocalDate.parse(data));
+            } else if (currentElement.equals(DrugTag.EXPIRATION_DATE.getTagName())) {
+                currentDrug.setExpirationDate(LocalDate.parse(data));
+            } else if (currentElement.equals(DrugTag.REGISTERING_ORGANIZATION.getTagName())) {
+                currentDrug.setRegisteringOrganization(data);
+            } else if (currentElement.equals(DrugTag.TYPE.getTagName())) {
+                currentDrug.setType(data);
+            } else if (currentElement.equals(DrugTag.PRICE.getTagName())) {
+                currentDrug.setPrice(Long.parseLong(data));
+            } else if (currentElement.equals(DrugTag.DOSAGE.getTagName())) {
+                currentDrug.setDosage(Long.parseLong(data));
+            } else if (currentElement.equals(DrugTag.MULTIPLICITY.getTagName())) {
+                currentDrug.setMultiplicity(data);
+            } else if(currentElement.equals(CHEMICAL_FORMULA.getTagName())){
+                ((ChemicalDrug) currentDrug).setChemicalformula(data);
+            } else if(currentElement.equals(PLANTS.getTagName())){
+                ((PlantDrug)currentDrug).setPlants(data);
+            }
         }
     }
 }
 
-
-//        if (currentTag != null) {
 
 
 //        }

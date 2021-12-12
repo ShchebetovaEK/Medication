@@ -7,14 +7,14 @@
 
     <xs:complexType name='Medicins'>
         <xs:choice maxOccurs="unbounded" minOccurs="0">
-            <xs:element name="сhemical-drug" type="Chemical"/>
+            <xs:element name="chemical-drug" type="Chemical"/>
             <xs:element name="plant-drug" type="Plant"/>
         </xs:choice>
     </xs:complexType>
 
     <xs:complexType name="Drug">
         <xs:sequence>
-            <xs:element name="name" type="DrugName"/>
+            <xs:element name="drug-name" type="DrugName"/>
             <xs:element name="pharm" type="DrugPharm"/>
             <xs:element name="group" type="DrugGroup"/>
             <xs:element name="analog" type="DrugAnalog"/>

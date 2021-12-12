@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <medicins xsi:schemaLocation="http://www.example.com/medicins m.xsd"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <сhemical-drug title="first" id="1">
-        <name>Оспамокс</name>
+    <chemical-drug title="first" id="1">
+        <drug-name>Оспамокс</drug-name>
         <pharm>Сандоз Австрия</pharm>
         <group>Антибиотик</group>
         <analog>Амоксикар</analog>
@@ -23,9 +23,10 @@
             <multiplicity>2 р в день</multiplicity>
         </dosa>
         <chemical-formula>c2h5oh</chemical-formula>
-    </сhemical-drug>
+    </chemical-drug>
+
     <plant-drug title="second" id="2">
-        <name>Корвалол</name>
+        <drug-name>Корвалол</drug-name>
         <pharm>Белмедпрепараты</pharm>
         <group>Гипертензивный</group>
         <analog>Корвакар</analog>
@@ -45,11 +46,11 @@
             <dosage>25</dosage>
             <multiplicity>5 р в день</multiplicity>
         </dosa>
-
         <plants>pine apple</plants>
     </plant-drug>
-    <сhemical-drug title="third" id="3">
-        <name>Аугментин</name>
+
+    <chemical-drug  title="third" id="3">
+        <drug-name>Аугментин</drug-name>
         <pharm>Великобритания</pharm>
         <group>Антибиотик</group>
         <analog>Амоксиклав</analog>
@@ -70,9 +71,10 @@
             <multiplicity>3 р в день</multiplicity>
         </dosa>
         <chemical-formula>c2h5oh</chemical-formula>
-    </сhemical-drug>
+    </chemical-drug>
+
     <plant-drug title="fourth" id="4">
-        <name>Термопсис</name>
+        <drug-name>Термопсис</drug-name>
         <pharm>Российская Федерация</pharm>
         <group>Противокашлевой</group>
         <analog>Термопсис плюс</analog>
@@ -94,8 +96,9 @@
         </dosa>
         <plants>pine apple</plants>
     </plant-drug>
-    <сhemical-drug title="fifth" id="5">
-        <name>Зиннат</name>
+
+    <chemical-drug title="fifth" id="5">
+        <drug-name>Зиннат</drug-name>
         <pharm>Великобритания</pharm>
         <group>Антибиотик</group>
         <analog>Биорацеф</analog>
@@ -116,10 +119,10 @@
             <multiplicity>2 р в день</multiplicity>
         </dosa>
         <chemical-formula>c2h5oh</chemical-formula>
-    </сhemical-drug>
+    </chemical-drug>
 
     <plant-drug title="sixth" id="6">
-        <name>Гербион</name>
+        <drug-name>Гербион</drug-name>
         <pharm>Австрия</pharm>
         <group>Противокашлевой</group>
         <analog>Гербион плющ</analog>
@@ -141,8 +144,9 @@
         </dosa>
         <plants>плющ</plants>
     </plant-drug>
-    <сhemical-drug title="seventh" id="7">
-        <name>Каптоприл</name>
+
+    <chemical-drug title="seventh" id="7">
+        <drug-name>Каптоприл</drug-name>
         <pharm>Белфарм</pharm>
         <group>Антигипертензионный</group>
         <analog>КаптоПриле</analog>
@@ -163,9 +167,10 @@
             <multiplicity>2 р в день</multiplicity>
         </dosa>
         <chemical-formula>c2h5oh</chemical-formula>
-    </сhemical-drug>
+    </chemical-drug>
+
     <plant-drug title="eighth" id="8">
-        <name>Геделикс</name>
+        <drug-name>Геделикс</drug-name>
         <pharm>Сандоз Австрия</pharm>
         <group>Противокашлевой</group>
         <analog>Гербион</analog>
@@ -187,8 +192,9 @@
         </dosa>
         <plants>первоцвет</plants>
     </plant-drug>
-    <сhemical-drug title="ninth" id="9">
-        <name>Амброксол</name>
+
+    <chemical-drug title="ninth" id="9">
+        <drug-name>Амброксол</drug-name>
         <pharm>Сандоз Австрия</pharm>
         <group>Отхаркивающий</group>
         <analog>Амбровикс</analog>
@@ -209,9 +215,10 @@
             <multiplicity>4 р в день</multiplicity>
         </dosa>
         <chemical-formula>c2h5oh</chemical-formula>
-    </сhemical-drug>
+    </chemical-drug>
+
     <plant-drug title="tenth" id="10">
-        <name>Валерьяна</name>
+        <drug-name>Валерьяна</drug-name>
         <pharm>МинскЛекПром</pharm>
         <group>Седативные</group>
         <analog>ВалерПРо</analog>
@@ -233,8 +240,9 @@
         </dosa>
         <plants>валерьяна</plants>
     </plant-drug>
-    <сhemical-drug title="eleventh" id="11">
-        <name>АЦЦ</name>
+
+    <chemical-drug title="eleventh" id="11">
+        <drug-name>АЦЦ</drug-name>
         <pharm>Сандоз Австрия</pharm>
         <group>Отхаркивающие</group>
         <analog>Ацц ЛОНГ</analog>
@@ -255,9 +263,10 @@
             <multiplicity>2 р в день</multiplicity>
         </dosa>
         <chemical-formula>c2h5oh</chemical-formula>
-    </сhemical-drug>
+    </chemical-drug>
+
     <plant-drug title="twelfth" id="12">
-        <name>Бепантен</name>
+        <drug-name>Бепантен</drug-name>
         <pharm>Сандоз Австрия</pharm>
         <group>Антибиотик</group>
         <analog>Бепан</analog>
@@ -279,8 +288,8 @@
         </dosa>
         <plants>pine apple</plants>
     </plant-drug>
-    <сhemical-drug title="thirteenth" id="13">
-        <name>Парацетамол</name>
+    <chemical-drug title="thirteenth" id="13">
+        <drug-name>Парацетамол</drug-name>
         <pharm>БританКомп</pharm>
         <group>Жаропонижающее</group>
         <analog>Панадол</analog>
@@ -301,9 +310,10 @@
             <multiplicity>2 р в день</multiplicity>
         </dosa>
         <chemical-formula>c2h5oh</chemical-formula>
-    </сhemical-drug>
+    </chemical-drug>
+
     <plant-drug title="fourteenth" id="14">
-        <name>Мометазон</name>
+        <drug-name>Мометазон</drug-name>
         <pharm>Литвапродакшн</pharm>
         <group>ГКС</group>
         <analog>Момезал</analog>
@@ -325,8 +335,9 @@
         </dosa>
         <plants>pine apple</plants>
     </plant-drug>
-    <сhemical-drug title="fifteenth" id="15">
-        <name>Ибупрофен</name>
+
+    <chemical-drug title="fifteenth" id="15">
+        <drug-name>Ибупрофен</drug-name>
         <pharm>БелФармация</pharm>
         <group>Жаропонижающее</group>
         <analog>Ибуфлекс</analog>
@@ -347,9 +358,10 @@
             <multiplicity>2 р в день</multiplicity>
         </dosa>
         <chemical-formula>c2h5oh</chemical-formula>
-    </сhemical-drug>
+    </chemical-drug>
+
     <plant-drug title="sixteenth" id="16">
-        <name>Тенотен</name>
+        <drug-name>Тенотен</drug-name>
         <pharm>ПалестинФарм</pharm>
         <group>Седативное</group>
         <analog>ТенотПлю</analog>

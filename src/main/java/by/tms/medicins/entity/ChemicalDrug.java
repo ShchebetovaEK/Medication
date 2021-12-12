@@ -1,7 +1,11 @@
 package by.tms.medicins.entity;
 
-public class ChemicalDrug extends Drug{
+public class ChemicalDrug extends Drug {
     private String Chemicalformula;
+
+    public ChemicalDrug() {
+        super();
+    }
 
     public String getChemicalformula() {
         return Chemicalformula;
