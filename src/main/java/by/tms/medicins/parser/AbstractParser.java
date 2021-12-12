@@ -15,7 +15,7 @@ import java.util.List;
 public abstract class AbstractParser<T> {
 
     private static final Logger logger = LogManager.getLogger();
-    private final String fileName;
+    public final String fileName;
 
     public AbstractParser(String fileName) {
         this.fileName = fileName;
@@ -30,10 +30,13 @@ public abstract class AbstractParser<T> {
             return collectInformation(document);
 
         } catch (ParserConfigurationException e) {
+            logger.error("ParserConfigurationException",e);
             throw new RuntimeException(e);
         } catch (IOException e) {
+            logger.error("IOException ",e);
             throw new RuntimeException(e);
         } catch (SAXException e) {
+            logger.error("SAXException",e);
             throw new RuntimeException(e);
         }
     }

@@ -3,13 +3,19 @@ package by.tms.medicins.exception;
 import java.io.IOException;
 
 public class MedicinsException extends IOException {
-    @Override
-    public String getMessage() {
-        return super.getMessage();
+    public MedicinsException() {
+        super();
     }
 
-    @Override
-    public void printStackTrace() {
-        super.printStackTrace();
+    public MedicinsException(String message) {
+        super(message);
+    }
+
+    public MedicinsException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public MedicinsException(Throwable cause) {
+        super(cause);
     }
 }

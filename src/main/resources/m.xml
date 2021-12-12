@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<medicins xsi:schemaLocation="http://www.example.com/medicins medicins.xsd"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <сhemical-drug title="first" id="1">
+        <name>Оспамокс</name>
+        <pharm>Сандоз Австрия</pharm>
+        <group>Антибиотик</group>
+        <analog>Амоксикар</analog>
+        <version>TABLET</version>
+        <certificate>
+            <number>45454544</number>
+            <date-of-issue>2021-05-01</date-of-issue>
+            <expiration-date>2026-05-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Блистер</type>
+            <package-number>10</package-number>
+            <price>1589</price>
+        </package-drug>
+        <dosa>
+            <dosage>250</dosage>
+            <multiplicity>2 р в день</multiplicity>
+        </dosa>
+        <chemical-formula>c2h5oh</chemical-formula>
+    </сhemical-drug>
+    <plant-drug title="second" id="2">
+        <name>Корвалол</name>
+        <pharm>Белмедпрепараты</pharm>
+        <group>Гипертензивный</group>
+        <analog>Корвакар</analog>
+        <version>DROPS</version>
+        <certificate>
+            <number>787544</number>
+            <date-of-issue>2021-06-01</date-of-issue>
+            <expiration-date>2026-03-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Флакон</type>
+            <package-number>1</package-number>
+            <price>89</price>
+        </package-drug>
+        <dosa>
+            <dosage>25</dosage>
+            <multiplicity>5 р в день</multiplicity>
+        </dosa>
+
+        <plants>pine apple</plants>
+    </plant-drug>
+    <сhemical-drug title="third" id="3">
+        <name>Аугментин</name>
+        <pharm>Великобритания</pharm>
+        <group>Антибиотик</group>
+        <analog>Амоксиклав</analog>
+        <version>TABLET</version>
+        <certificate>
+            <number>444</number>
+            <date-of-issue>2020-02-01</date-of-issue>
+            <expiration-date>2025-01-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Блистер</type>
+            <package-number>10</package-number>
+            <price>1799</price>
+        </package-drug>
+        <dosa>
+            <dosage>875</dosage>
+            <multiplicity>3 р в день</multiplicity>
+        </dosa>
+        <chemical-formula>c2h5oh</chemical-formula>
+    </сhemical-drug>
+    <plant-drug title="fourth" id="4">
+        <name>Термопсис</name>
+        <pharm>Российская Федерация</pharm>
+        <group>Противокашлевой</group>
+        <analog>Термопсис плюс</analog>
+        <version>DRAGEE</version>
+        <certificate>
+            <number>1452</number>
+            <date-of-issue>2011-05-01</date-of-issue>
+            <expiration-date>2021-05-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Блистер</type>
+            <package-number>20</package-number>
+            <price>89</price>
+        </package-drug>
+        <dosa>
+            <dosage>150</dosage>
+            <multiplicity>4 р в день</multiplicity>
+        </dosa>
+        <plants>pine apple</plants>
+    </plant-drug>
+    <сhemical-drug title="fifth" id="5">
+        <name>Зиннат</name>
+        <pharm>Великобритания</pharm>
+        <group>Антибиотик</group>
+        <analog>Биорацеф</analog>
+        <version>SUSPENSION</version>
+        <certificate>
+            <number>32664</number>
+            <date-of-issue>2021-05-01</date-of-issue>
+            <expiration-date>2033-01-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Флакон</type>
+            <package-number>1</package-number>
+            <price>2589</price>
+        </package-drug>
+        <dosa>
+            <dosage>125</dosage>
+            <multiplicity>2 р в день</multiplicity>
+        </dosa>
+        <chemical-formula>c2h5oh</chemical-formula>
+    </сhemical-drug>
+
+    <plant-drug title="sixth" id="6">
+        <name>Гербион</name>
+        <pharm>Австрия</pharm>
+        <group>Противокашлевой</group>
+        <analog>Гербион плющ</analog>
+        <version>SYRUP</version>
+        <certificate>
+            <number>5121</number>
+            <date-of-issue>2021-01-01</date-of-issue>
+            <expiration-date>2023-05-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Флакон</type>
+            <package-number>1</package-number>
+            <price>192</price>
+        </package-drug>
+        <dosa>
+            <dosage>25</dosage>
+            <multiplicity>4 р в день</multiplicity>
+        </dosa>
+        <plants>плющ</plants>
+    </plant-drug>
+    <сhemical-drug title="seventh" id="7">
+        <name>Каптоприл</name>
+        <pharm>Белфарм</pharm>
+        <group>Антигипертензионный</group>
+        <analog>КаптоПриле</analog>
+        <version>CAPSULE</version>
+        <certificate>
+            <number>45144</number>
+            <date-of-issue>2020-05-01</date-of-issue>
+            <expiration-date>2025-03-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Блистер</type>
+            <package-number>15</package-number>
+            <price>169</price>
+        </package-drug>
+        <dosa>
+            <dosage>50</dosage>
+            <multiplicity>2 р в день</multiplicity>
+        </dosa>
+        <chemical-formula>c2h5oh</chemical-formula>
+    </сhemical-drug>
+    <plant-drug title="eighth" id="8">
+        <name>Геделикс</name>
+        <pharm>Сандоз Австрия</pharm>
+        <group>Противокашлевой</group>
+        <analog>Гербион</analog>
+        <version>SYRUP</version>
+        <certificate>
+            <number>544</number>
+            <date-of-issue>2019-05-01</date-of-issue>
+            <expiration-date>2022-01-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Флакон</type>
+            <package-number>1</package-number>
+            <price>1589</price>
+        </package-drug>
+        <dosa>
+            <dosage>50</dosage>
+            <multiplicity>2 р в день</multiplicity>
+        </dosa>
+        <plants>первоцвет</plants>
+    </plant-drug>
+    <сhemical-drug title="ninth" id="9">
+        <name>Амброксол</name>
+        <pharm>Сандоз Австрия</pharm>
+        <group>Отхаркивающий</group>
+        <analog>Амбровикс</analog>
+        <version>SOLUTION</version>
+        <certificate>
+            <number>1114</number>
+            <date-of-issue>2011-05-01</date-of-issue>
+            <expiration-date>2026-06-09</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Флакон</type>
+            <package-number>1</package-number>
+            <price>23589</price>
+        </package-drug>
+        <dosa>
+            <dosage>500</dosage>
+            <multiplicity>4 р в день</multiplicity>
+        </dosa>
+        <chemical-formula>c2h5oh</chemical-formula>
+    </сhemical-drug>
+    <plant-drug title="tenth" id="10">
+        <name>Валерьяна</name>
+        <pharm>МинскЛекПром</pharm>
+        <group>Седативные</group>
+        <analog>ВалерПРо</analog>
+        <version>DROPS</version>
+        <certificate>
+            <number>77774</number>
+            <date-of-issue>2011-05-01</date-of-issue>
+            <expiration-date>2036-05-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Флакон</type>
+            <package-number>2</package-number>
+            <price>19</price>
+        </package-drug>
+        <dosa>
+            <dosage>25</dosage>
+            <multiplicity>1 р в день</multiplicity>
+        </dosa>
+        <plants>валерьяна</plants>
+    </plant-drug>
+    <сhemical-drug title="eleventh" id="11">
+        <name>АЦЦ</name>
+        <pharm>Сандоз Австрия</pharm>
+        <group>Отхаркивающие</group>
+        <analog>Ацц ЛОНГ</analog>
+        <version>TABLET</version>
+        <certificate>
+            <number>78544</number>
+            <date-of-issue>2020-05-01</date-of-issue>
+            <expiration-date>2036-05-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Туба</type>
+            <package-number>10</package-number>
+            <price>789</price>
+        </package-drug>
+        <dosa>
+            <dosage>200</dosage>
+            <multiplicity>2 р в день</multiplicity>
+        </dosa>
+        <chemical-formula>c2h5oh</chemical-formula>
+    </сhemical-drug>
+    <plant-drug title="twelfth" id="12">
+        <name>Бепантен</name>
+        <pharm>Сандоз Австрия</pharm>
+        <group>Антибиотик</group>
+        <analog>Бепан</analog>
+        <version>GEL</version>
+        <certificate>
+            <number>77454544</number>
+            <date-of-issue>2021-05-01</date-of-issue>
+            <expiration-date>2032-05-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>туба</type>
+            <package-number>1</package-number>
+            <price>7789</price>
+        </package-drug>
+        <dosa>
+            <dosage>250</dosage>
+            <multiplicity>2 р в день</multiplicity>
+        </dosa>
+        <plants>pine apple</plants>
+    </plant-drug>
+    <сhemical-drug title="thirteenth" id="13">
+        <name>Парацетамол</name>
+        <pharm>БританКомп</pharm>
+        <group>Жаропонижающее</group>
+        <analog>Панадол</analog>
+        <version>CAPSULE</version>
+        <certificate>
+            <number>8994544</number>
+            <date-of-issue>2021-05-01</date-of-issue>
+            <expiration-date>2030-02-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Блистер</type>
+            <package-number>20</package-number>
+            <price>1755</price>
+        </package-drug>
+        <dosa>
+            <dosage>250</dosage>
+            <multiplicity>2 р в день</multiplicity>
+        </dosa>
+        <chemical-formula>c2h5oh</chemical-formula>
+    </сhemical-drug>
+    <plant-drug title="fourteenth" id="14">
+        <name>Мометазон</name>
+        <pharm>Литвапродакшн</pharm>
+        <group>ГКС</group>
+        <analog>Момезал</analog>
+        <version>CREAM</version>
+        <certificate>
+            <number>7744</number>
+            <date-of-issue>2020-05-01</date-of-issue>
+            <expiration-date>2023-05-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>туба</type>
+            <package-number>1</package-number>
+            <price>789</price>
+        </package-drug>
+        <dosa>
+            <dosage>25</dosage>
+            <multiplicity>2 р в день</multiplicity>
+        </dosa>
+        <plants>pine apple</plants>
+    </plant-drug>
+    <сhemical-drug title="fifteenth" id="15">
+        <name>Ибупрофен</name>
+        <pharm>БелФармация</pharm>
+        <group>Жаропонижающее</group>
+        <analog>Ибуфлекс</analog>
+        <version>SUPPOSITORIES</version>
+        <certificate>
+            <number>18994</number>
+            <date-of-issue>2010-02-01</date-of-issue>
+            <expiration-date>2023-05-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Блистер</type>
+            <package-number>5</package-number>
+            <price>786</price>
+        </package-drug>
+        <dosa>
+            <dosage>125</dosage>
+            <multiplicity>2 р в день</multiplicity>
+        </dosa>
+        <chemical-formula>c2h5oh</chemical-formula>
+    </сhemical-drug>
+    <plant-drug title="sixteenth" id="16">
+        <name>Тенотен</name>
+        <pharm>ПалестинФарм</pharm>
+        <group>Седативное</group>
+        <analog>ТенотПлю</analog>
+        <version>TABLET</version>
+        <certificate>
+            <number>458</number>
+            <date-of-issue>2020-05-01</date-of-issue>
+            <expiration-date>2023-05-04</expiration-date>
+            <registering-organization>FDA</registering-organization>
+        </certificate>
+        <package-drug>
+            <type>Блистер</type>
+            <package-number>20</package-number>
+            <price>18999</price>
+        </package-drug>
+        <dosa>
+            <dosage>20</dosage>
+            <multiplicity>2 р в день</multiplicity>
+        </dosa>
+        <plants>pine apple</plants>
+    </plant-drug>
+</medicins>

@@ -1,47 +1,54 @@
 package by.tms.medicins.parser;
 
-import by.tms.medicins.entity.Medicins;
+import by.tms.medicins.entity.ChemicalDrug;
+import by.tms.medicins.entity.Drug;
+import by.tms.medicins.entity.PlantDrug;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 
 import javax.xml.parsers.*;
-import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
-public class SaxMedicinsParser {
-
+public class SaxMedicinsParser extends AbstractParser<Drug> {
     private static final Logger logger = LogManager.getLogger();
-    private final String fileName;
 
     public SaxMedicinsParser(String fileName) {
-        this.fileName = fileName;
+        super(fileName);
     }
 
-    public Medicins parse() {
-        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-        SaxParserHandler saxParserHandler = new SaxParserHandler();
-        SAXParser parser = null;
+    private List<Drug> drugList;
 
+
+    public void createSax() {
         try {
-            parser = saxParserFactory.newSAXParser();
+            SAXParserFactory factory = SAXParserFactory.newInstance();
+            SAXParser parser = factory.newSAXParser();
+            var handler = new SaxParserHandler();
+            XMLReader reader = parser.getXMLReader();
+            reader.setContentHandler(handler);
+            reader.setErrorHandler(new DrugErrorHandler());
+            reader.parse(fileName);
+            parser.parse(fileName,handler);
+            drugList = handler.getDrugList();
+
         } catch (ParserConfigurationException e) {
-            logger.error("ParserConfigurationException {}", e);
+            logger.info("ParserConfigurationException");
         } catch (SAXException e) {
-            logger.error("SAXException {}", e);
-        }
-
-        File file = new File("C:\\Users\\HP\\IdeaProjects\\Medication\\src\\main\\resources\\Medicins.xml");
-        try {
-            parser.parse(file, saxParserHandler);
-        } catch (SAXException e) {
-            logger.error("SAXException {}", e);
-        } catch (NullPointerException e) {
-            logger.error("NullPointerException {}", e);
+            logger.info("SAXException ", e);
         } catch (IOException e) {
-            logger.error("SAxparser have {}", e);
-        }
-        return saxParserHandler.getMedicins();
+            logger.info("IOException");
     }
 
+    }
+
+    @Override
+    protected List<Drug> collectInformation(Document document) {
+        logger.info("sax collect");
+        return drugList;
+    }
 }
+

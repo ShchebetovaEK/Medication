@@ -2,8 +2,10 @@ package by.tms.medicins.entity;
 
 import java.time.LocalDate;
 
-public class Drug {
+public abstract class Drug {
 
+    private String id;
+    private String title;
     private String name;
     private String pharm;
     private String group;
@@ -19,25 +21,20 @@ public class Drug {
     private long dosage;
     private String multiplicity;
 
-    public Drug() {
+    public String getId() {
+        return id;
     }
 
-    public Drug(String name, String pharm, String group, String analog, Version version, long number, LocalDate dateOfIssue,
-                LocalDate expirationDate, String registeringOrganization, String type, int packageNumber, long price, long dosage, String multiplicity) {
-        this.name = name;
-        this.pharm = pharm;
-        this.group = group;
-        this.analog = analog;
-        this.version = version;
-        this.number = number;
-        this.dateOfIssue = dateOfIssue;
-        this.expirationDate = expirationDate;
-        this.registeringOrganization = registeringOrganization;
-        this.type = type;
-        this.packageNumber = packageNumber;
-        this.price = price;
-        this.dosage = dosage;
-        this.multiplicity = multiplicity;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getName() {
@@ -153,9 +150,57 @@ public class Drug {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Drug drug = (Drug) o;
+
+        if (number != drug.number) return false;
+        if (packageNumber != drug.packageNumber) return false;
+        if (price != drug.price) return false;
+        if (dosage != drug.dosage) return false;
+        if (!id.equals(drug.id)) return false;
+        if (!title.equals(drug.title)) return false;
+        if (!name.equals(drug.name)) return false;
+        if (!pharm.equals(drug.pharm)) return false;
+        if (!group.equals(drug.group)) return false;
+        if (!analog.equals(drug.analog)) return false;
+        if (version != drug.version) return false;
+        if (!dateOfIssue.equals(drug.dateOfIssue)) return false;
+        if (!expirationDate.equals(drug.expirationDate)) return false;
+        if (!registeringOrganization.equals(drug.registeringOrganization)) return false;
+        if (!type.equals(drug.type)) return false;
+        return multiplicity.equals(drug.multiplicity);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id.hashCode();
+        result = 31 * result + title.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + pharm.hashCode();
+        result = 31 * result + group.hashCode();
+        result = 31 * result + analog.hashCode();
+        result = 31 * result + version.hashCode();
+        result = 31 * result + (int) (number ^ (number >>> 32));
+        result = 31 * result + dateOfIssue.hashCode();
+        result = 31 * result + expirationDate.hashCode();
+        result = 31 * result + registeringOrganization.hashCode();
+        result = 31 * result + type.hashCode();
+        result = 31 * result + packageNumber;
+        result = 31 * result + (int) (price ^ (price >>> 32));
+        result = 31 * result + (int) (dosage ^ (dosage >>> 32));
+        result = 31 * result + multiplicity.hashCode();
+        return result;
+    }
+
+    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Drug{");
-        sb.append("name='").append(name).append('\'');
+        sb.append("id='").append(id).append('\'');
+        sb.append(", title='").append(title).append('\'');
+        sb.append(", name='").append(name).append('\'');
         sb.append(", pharm='").append(pharm).append('\'');
         sb.append(", group='").append(group).append('\'');
         sb.append(", analog='").append(analog).append('\'');

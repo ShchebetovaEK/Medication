@@ -15,5 +15,5 @@ public enum Version {
     CREAM,
     OINTMENT,
     GEL,
-    SUPPOSITIRIES
+    SUPPOSITORIES
 }

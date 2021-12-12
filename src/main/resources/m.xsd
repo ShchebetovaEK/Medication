@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           attributeFormDefault="unqualified" elementFormDefault="qualified" >
+
+    <xs:element name="medicins" type="Medicins"/>
+
+    <xs:complexType name='Medicins'>
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="сhemical-drug" type="Chemical"/>
+            <xs:element name="plant-drug" type="Plant"/>
+        </xs:choice>
+    </xs:complexType>
+
+    <xs:complexType name="Drug">
+        <xs:sequence>
+            <xs:element name="name" type="DrugName"/>
+            <xs:element name="pharm" type="DrugPharm"/>
+            <xs:element name="group" type="DrugGroup"/>
+            <xs:element name="analog" type="DrugAnalog"/>
+            <xs:element name="version" type="Version"/>
+            <xs:element name="certificate" type="Certificate"/>
+            <xs:element name="package-drug" type="Package-drug"/>
+            <xs:element name="dosa" type="Dosa"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:int" use="required"/>
+        <xs:attribute name="title" type="xs:string" use="optional"/>
+    </xs:complexType>
+
+    <xs:complexType name="Chemical">
+        <xs:complexContent>
+            <xs:extension base="Drug">
+                <xs:sequence>
+                    <xs:element name="chemical-formula" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="Plant">
+        <xs:complexContent>
+            <xs:extension base="Drug">
+                <xs:sequence>
+                    <xs:element name="plants" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:simpleType name="DrugName">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DrugPharm">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DrugGroup">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DrugAnalog">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="Version">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="TABLET"/>
+            <xs:enumeration value="SUSPENSION"/>
+            <xs:enumeration value="DRAGEE"/>
+            <xs:enumeration value="CAPSULE"/>
+            <xs:enumeration value="SOLUTION"/>
+            <xs:enumeration value="PASTA"/>
+            <xs:enumeration value="GRANULE"/>
+            <xs:enumeration value="SYRUP"/>
+            <xs:enumeration value="DROPS"/>
+            <xs:enumeration value="EMULSION"/>
+            <xs:enumeration value="POWDER"/>
+            <xs:enumeration value="CREAM"/>
+            <xs:enumeration value="OINTMENT"/>
+            <xs:enumeration value="GEL"/>
+            <xs:enumeration value="SUPPOSITORIES"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Certificate">
+        <xs:sequence>
+            <xs:element name="number" type="xs:long"/>
+            <xs:element name="date-of-issue" type="xs:date"/>
+            <xs:element name="expiration-date" type="xs:date"/>
+            <xs:element name="registering-organization" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Package-drug">
+        <xs:sequence>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="package-number" type="xs:int"/>
+            <xs:element name="price" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Dosa">
+        <xs:sequence>
+            <xs:element name="dosage" type="xs:long"/>
+            <xs:element name="multiplicity" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="Multiplicity">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]\s[A-ZА-Я]\s[A-ZА-Я]\s[A-ZА-Я]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
