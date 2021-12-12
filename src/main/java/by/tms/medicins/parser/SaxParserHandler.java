@@ -22,6 +22,7 @@ public class SaxParserHandler extends DefaultHandler {
     private DrugTag currentTag;
     private Drug currentDrug;
     private final EnumSet<DrugTag> withText;
+    private String currentElement;
 
     public SaxParserHandler() {
         drugList = new ArrayList<>();
@@ -46,6 +47,7 @@ public class SaxParserHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+        currentElement = qName;
         logger.info("SaxHandler start reading Element {}", qName);
         String name = qName.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
         if (qName.equals(DrugTag.CHEMICAL_DRUG.toString()) || qName.equals(DrugTag.PLANT_DRUG.toString())) {
@@ -63,8 +65,8 @@ public class SaxParserHandler extends DefaultHandler {
                 currentDrug.setTitle(attributes.getValue(0));
             } else {
                 int idAttributeIndex = attributes.getLocalName(0).equals(DrugTag.ID.toString()) ? 0 : 1;
-                                currentDrug.setId(attributes.getValue(idAttributeIndex));
-                            }
+                currentDrug.setId(attributes.getValue(idAttributeIndex));
+            }
         } else {
             DrugTag temp = DrugTag.valueOf(name);
             if (withText.contains(temp)) {
@@ -72,9 +74,6 @@ public class SaxParserHandler extends DefaultHandler {
             }
         }
     }
-
-
-
 
 
     @Override
@@ -90,75 +89,110 @@ public class SaxParserHandler extends DefaultHandler {
     public void characters(char[] ch, int start, int length) throws SAXException {
         logger.info("very good");
         String data = new String(ch, start, length).strip();
-        if (currentTag != null) {
-            switch (currentTag) {
-                case TAG_NAME:
-                    currentDrug.setName(data);
-                    break;
-                case TAG_ANALOG:
-                    currentDrug.setAnalog(data);
-                    break;
+        if (currentElement.equals(currentTag.TAG_NAME)) {
+            currentDrug.setName(data);
 
-                case TAG_GROUP:
-                    currentDrug.setGroup(data);
-                    break;
-                case TAG_PHARM:
-                    currentDrug.setPharm(data);
-                    break;
-                case TAG_VERSION:
-                    String version = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-                    currentDrug.setVersion(Version.valueOf(version));
-                    break;
-                case TAG_NUMBER:
-                    String number = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-                    currentDrug.setNumber(Long.parseLong(number));
-                    break;
-                case TAG_DATA_OF_ISSUE:
-                    String dateOfIssue = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-                    currentDrug.setDateOfIssue(LocalDate.parse(dateOfIssue));
-                    break;
-                case TAG_EXPIRATION_DATE:
-                    String expirationDate = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-                    currentDrug.setExpirationDate(LocalDate.parse(expirationDate));
-                    break;
-                case TAG_REGISTERING_ORGANIZATION:
-                    currentDrug.setRegisteringOrganization(data);
-                    break;
-                case TAG_TYPE:
-                    currentDrug.setType(data);
-                    break;
-                case TAG_PACKAGE_NUMBER:
-                    String packageNumber = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-                    currentDrug.setPackageNumber(Integer.parseInt(packageNumber));
-                    break;
-                case TAG_PRICE:
-                    String price = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-                    currentDrug.setPrice(Long.parseLong(price));
-                    break;
-                case TAG_DOSAGE:
-                    String dosage = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-                    currentDrug.setDosage(Long.parseLong(dosage));
-                    break;
-                case TAG_MULTIPLICITY:
-                    currentDrug.setMultiplicity(data);
-                    break;
-                case TAG_CHEMICAL_FORMULA:
-                    ChemicalDrug tempChemicalDrug = (ChemicalDrug) currentDrug;
-                    String chemicalFormula = data.toUpperCase(Locale.ROOT);
-                    tempChemicalDrug.setChemicalformula(chemicalFormula);
-                    break;
-                case TAG_PLANT:
-                    PlantDrug tempPlantDrug = (PlantDrug) currentDrug;
-                    String plant = data.toUpperCase(Locale.ROOT);
-                    tempPlantDrug.setPlants(plant);
-                    break;
-                default:
-                    throw new EnumConstantNotPresentException(
-                            currentTag.getDeclaringClass(), currentTag.name());
-            }
-            currentTag = null;
+        } else if (currentElement.equals(currentTag.TAG_PHARM)) {
+            currentDrug.setPharm(data);
+        } else if (currentElement.equals(currentTag.TAG_GROUP)) {
+            currentDrug.setGroup(data);
+        } else if (currentElement.equals(currentTag.TAG_ANALOG)) {
+            currentDrug.setAnalog(data);
+        } else if (currentElement.equals(currentTag.TAG_VERSION)) {
+            currentDrug.setVersion(Version.valueOf(data));
+        } else if (currentElement.equals(currentTag.TAG_PACKAGE_NUMBER)) {
+            currentDrug.setPackageNumber(Integer.parseInt(data));
+        } else if (currentElement.equals(currentTag.TAG_DATA_OF_ISSUE)) {
+            currentDrug.setDateOfIssue(LocalDate.parse(data));
+        } else if (currentElement.equals(currentTag.TAG_EXPIRATION_DATE)) {
+            currentDrug.setExpirationDate(LocalDate.parse(data));
+        } else if (currentElement.equals(currentTag.TAG_REGISTERING_ORGANIZATION)) {
+            currentDrug.setRegisteringOrganization(data);
+        } else if (currentElement.equals(currentTag.TAG_TYPE)) {
+            currentDrug.setType(data);
+        } else if (currentElement.equals(currentTag.TAG_PRICE)) {
+            currentDrug.setPrice(Long.parseLong(data));
+        } else if (currentElement.equals(currentTag.TAG_DOSAGE)) {
+            currentDrug.setDosage(Long.parseLong(data));
+        } else if (currentElement.equals(currentTag.TAG_MULTIPLICITY)) {
+            currentDrug.setMultiplicity(data);
+
         }
     }
 }
+
+
+//        if (currentTag != null) {
+
+
+//        }
+//            switch (currentTag) {
+//                case TAG_NAME:
+//                    currentDrug.setName(data);
+//                    break;
+//                case TAG_ANALOG:
+//                    currentDrug.setAnalog(data);
+//                    break;
+//                case TAG_GROUP:
+//                    currentDrug.setGroup(data);
+//                    break;
+//                case TAG_PHARM:
+//                    currentDrug.setPharm(data);
+//                    break;
+//                case TAG_VERSION:
+//                    String version = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
+//                    currentDrug.setVersion(Version.valueOf(version));
+//                    break;
+//                case TAG_NUMBER:
+//                    String number = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
+//                    currentDrug.setNumber(Long.parseLong(number));
+//                    break;
+//                case TAG_DATA_OF_ISSUE:
+//                    String dateOfIssue = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
+//                    currentDrug.setDateOfIssue(LocalDate.parse(dateOfIssue));
+//                    break;
+//                case TAG_EXPIRATION_DATE:
+//                    String expirationDate = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
+//                    currentDrug.setExpirationDate(LocalDate.parse(expirationDate));
+//                    break;
+//                case TAG_REGISTERING_ORGANIZATION:
+//                    currentDrug.setRegisteringOrganization(data);
+//                    break;
+//                case TAG_TYPE:
+//                    currentDrug.setType(data);
+//                    break;
+//                case TAG_PACKAGE_NUMBER:
+//                    String packageNumber = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
+//                    currentDrug.setPackageNumber(Integer.parseInt(packageNumber));
+//                    break;
+//                case TAG_PRICE:
+//                    String price = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
+//                    currentDrug.setPrice(Long.parseLong(price));
+//                    break;
+//                case TAG_DOSAGE:
+//                    String dosage = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
+//                    currentDrug.setDosage(Long.parseLong(dosage));
+//                    break;
+//                case TAG_MULTIPLICITY:
+//                    currentDrug.setMultiplicity(data);
+//                    break;
+//                case TAG_CHEMICAL_FORMULA:
+//                    ChemicalDrug tempChemicalDrug = (ChemicalDrug) currentDrug;
+//                    String chemicalFormula = data.toUpperCase(Locale.ROOT);
+//                    tempChemicalDrug.setChemicalformula(chemicalFormula);
+//                    break;
+//                case TAG_PLANT:
+//                    PlantDrug tempPlantDrug = (PlantDrug) currentDrug;
+//                    String plant = data.toUpperCase(Locale.ROOT);
+//                    tempPlantDrug.setPlants(plant);
+//                    break;
+//                default:
+//                    throw new EnumConstantNotPresentException(
+//                            currentTag.getDeclaringClass(), currentTag.name());
+//            }
+//            currentTag = null;
+//        }
+
+
 
 
