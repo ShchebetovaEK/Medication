@@ -28,12 +28,12 @@ public class SaxParserHandler extends DefaultHandler {
 
     @Override
     public void startDocument() throws SAXException {
-        logger.log(Level.INFO,"SaxHandler Start");
+        logger.log(Level.TRACE,"SaxHandler Start");
     }
 
     @Override
     public void endDocument() throws SAXException {
-        logger.log(Level.INFO," Drugs in drugList ");
+        logger.log(Level.TRACE," Drugs in drugList ");
     }
 
     @Override
@@ -44,12 +44,12 @@ public class SaxParserHandler extends DefaultHandler {
             currentDrug = new ChemicalDrug();
             currentDrug.setId(attributes.getValue(ID.getTagName()));
             currentDrug.setTitle(attributes.getValue(TITLE.getTagName()));
-            logger.log(Level.INFO,"start read chemical drug {}",currentDrug.getId());
+            logger.log(Level.TRACE,"start read chemical drug {}",currentDrug.getId());
         } else if (currentElement.equals("plant-drug")) {
             currentDrug = new PlantDrug();
             currentDrug.setId(attributes.getValue(ID.getTagName()));
             currentDrug.setTitle(attributes.getValue(TITLE.getTagName()));
-            logger.log(Level.INFO,"start read plant {}",currentDrug.getId());
+            logger.log(Level.TRACE,"start read plant {}",currentDrug.getId());
         }
     }
 
@@ -57,7 +57,7 @@ public class SaxParserHandler extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) throws SAXException {
         if (qName.equals(CHEMICAL_DRUG.getTagName()) || qName.equals(PLANT_DRUG.getTagName())) {
             drugList.add(currentDrug);
-            logger.log(Level.INFO,"end read element {}",qName);
+            logger.log(Level.TRACE,"end read element {}",qName);
         }
     }
 
@@ -98,7 +98,7 @@ public class SaxParserHandler extends DefaultHandler {
             } else if(currentElement.equals(PLANTS.getTagName())){
                 ((PlantDrug)currentDrug).setPlants(data);
             }
-            logger.log(Level.INFO,"read characters {}",currentElement);
+            logger.log(Level.TRACE,"read characters {}",currentElement);
         }
     }
 }

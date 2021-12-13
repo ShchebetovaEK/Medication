@@ -110,7 +110,7 @@ public class DomMedicinsParser {
                 ChemicalDrug::new,
                 (e, d) -> ((ChemicalDrug) d).setChemicalFormula(e.getElementsByTagName("chemical-formula").item(0).getTextContent().trim())
         ));
-        logger.log(Level.INFO,"DomParser read file successfully");
+        logger.log(Level.TRACE,"DomParser read file successfully");
         return medicinsList;
     }
 }
