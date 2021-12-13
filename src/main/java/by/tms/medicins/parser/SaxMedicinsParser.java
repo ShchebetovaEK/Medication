@@ -27,10 +27,10 @@ public class SaxMedicinsParser {
     }
 
     public List<Drug> parse() {
-        if(!new XmlValidator().isXmlFileValid("m.xml","m.xsd")){
+        if (!new XmlValidator().isXmlFileValid("m.xml", "m.xsd")) {
             return drugList;
-
-        }        try {
+        }
+        try {
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser parser = factory.newSAXParser();
             SaxParserHandler handler = new SaxParserHandler();
@@ -41,13 +41,12 @@ public class SaxMedicinsParser {
             parser.parse(file, handler);
             drugList = handler.getDrugList();
         } catch (ParserConfigurationException e) {
-            logger.log(Level.ERROR, "Error getting new parser: {}",e.getMessage());
+            logger.log(Level.ERROR, "Error getting new parser: {}", e.getMessage());
         } catch (SAXException e) {
-            logger.error("SAXException ", e);
+            logger.log(Level.ERROR,"SAXException : {}", e.getMessage());
         } catch (IOException e) {
-            logger.info("IOException");
+            logger.log(Level.ERROR,"IOException : {}", e.getMessage());
         }
-
         return drugList;
     }
 }

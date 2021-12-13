@@ -1,18 +1,18 @@
 package by.tms.medicins.entity;
 
 public class ChemicalDrug extends Drug {
-    private String Chemicalformula;
+    private String chemicalFormula;
 
     public ChemicalDrug() {
         super();
     }
 
-    public String getChemicalformula() {
-        return Chemicalformula;
+    public String getChemicalFormula() {
+        return chemicalFormula;
     }
 
-    public void setChemicalformula(String chemicalformula) {
-        Chemicalformula = chemicalformula;
+    public void setChemicalFormula(String chemicalFormula) {
+        this.chemicalFormula = chemicalFormula;
     }
 
     @Override
@@ -23,13 +23,13 @@ public class ChemicalDrug extends Drug {
 
         ChemicalDrug that = (ChemicalDrug) o;
 
-        return Chemicalformula.equals(that.Chemicalformula);
+        return chemicalFormula.equals(that.chemicalFormula);
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + Chemicalformula.hashCode();
+        result = 31 * result + chemicalFormula.hashCode();
         return result;
     }
 
@@ -37,9 +37,8 @@ public class ChemicalDrug extends Drug {
     public String toString() {
         final StringBuilder sb = new StringBuilder("ChemicalDrug{");
         sb.append(super.toString());
-        sb.append("Chemicalformula='").append(Chemicalformula).append('\'');
+        sb.append("Chemicalformula='").append(chemicalFormula).append('\'');
         sb.append('}');
         return sb.toString();
     }
-
 }

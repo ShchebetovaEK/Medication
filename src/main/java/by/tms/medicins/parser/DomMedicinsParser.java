@@ -2,6 +2,7 @@ package by.tms.medicins.parser;
 
 import by.tms.medicins.entity.*;
 import by.tms.medicins.validator.XmlValidator;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.w3c.dom.Document;
@@ -22,10 +23,8 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public class DomMedicinsParser {
-
     private static final Logger logger = LogManager.getLogger();
     private final String fileName;
-
 
     public DomMedicinsParser(String fileName) {
         this.fileName = fileName;
@@ -40,7 +39,6 @@ public class DomMedicinsParser {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document document = builder.parse(inputStream);
             return collectInformation(document);
-
         } catch (ParserConfigurationException e) {
             logger.error("ParserConfigurationException", e);
             throw new RuntimeException(e);
@@ -110,9 +108,9 @@ public class DomMedicinsParser {
         medicinsList.addAll(createDrugs(
                 chemicalElements,
                 ChemicalDrug::new,
-                (e, d) -> ((ChemicalDrug) d).setChemicalformula(e.getElementsByTagName("chemical-formula").item(0).getTextContent().trim())
+                (e, d) -> ((ChemicalDrug) d).setChemicalFormula(e.getElementsByTagName("chemical-formula").item(0).getTextContent().trim())
         ));
-        logger.info("DomParser read file successfully");
+        logger.log(Level.INFO,"DomParser read file successfully");
         return medicinsList;
     }
 }

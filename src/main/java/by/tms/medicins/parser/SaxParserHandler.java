@@ -1,6 +1,7 @@
 package by.tms.medicins.parser;
 
 import by.tms.medicins.entity.*;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.xml.sax.Attributes;
@@ -14,12 +15,10 @@ import java.util.List;
 import static by.tms.medicins.entity.DrugTag.*;
 
 public class SaxParserHandler extends DefaultHandler {
-
     private static final Logger logger = LogManager.getLogger();
     private static final char HIGH = '-';
     private static final char UNDER = '_';
     private List<Drug> drugList = new ArrayList<>();
-    private DrugTag currentTag;
     private Drug currentDrug = new ChemicalDrug();
     private String currentElement;
 
@@ -29,12 +28,12 @@ public class SaxParserHandler extends DefaultHandler {
 
     @Override
     public void startDocument() throws SAXException {
-        logger.info("SaxHandler Start");
+        logger.log(Level.INFO,"SaxHandler Start");
     }
 
     @Override
     public void endDocument() throws SAXException {
-        logger.info(" Drugs in drugList ");
+        logger.log(Level.INFO," Drugs in drugList ");
     }
 
     @Override
@@ -45,12 +44,12 @@ public class SaxParserHandler extends DefaultHandler {
             currentDrug = new ChemicalDrug();
             currentDrug.setId(attributes.getValue(ID.getTagName()));
             currentDrug.setTitle(attributes.getValue(TITLE.getTagName()));
-            logger.info("chemical drug {}",currentDrug.getId());
+            logger.log(Level.INFO,"start read chemical drug {}",currentDrug.getId());
         } else if (currentElement.equals("plant-drug")) {
             currentDrug = new PlantDrug();
             currentDrug.setId(attributes.getValue(ID.getTagName()));
             currentDrug.setTitle(attributes.getValue(TITLE.getTagName()));
-            logger.info("plant {}",currentDrug.getId());
+            logger.log(Level.INFO,"start read plant {}",currentDrug.getId());
         }
     }
 
@@ -58,6 +57,7 @@ public class SaxParserHandler extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) throws SAXException {
         if (qName.equals(CHEMICAL_DRUG.getTagName()) || qName.equals(PLANT_DRUG.getTagName())) {
             drugList.add(currentDrug);
+            logger.log(Level.INFO,"end read element {}",qName);
         }
     }
 
@@ -76,9 +76,7 @@ public class SaxParserHandler extends DefaultHandler {
             } else if (currentElement.equals(DrugTag.VERSION.getTagName())) {
                 currentDrug.setVersion(Version.valueOf(data));
             } else if (currentElement.equals(DrugTag.NUMBER.getTagName())) {
-                currentDrug.setNumber(Integer.parseInt(data));
-            } else if (currentElement.equals(DrugTag.PACKAGE_NUMBER.getTagName())) {
-                currentDrug.setPackageNumber(Integer.parseInt(data));
+                currentDrug.setNumber(Long.parseLong(data));
             } else if (currentElement.equals(DATE_OF_ISSUE.getTagName())) {
                 currentDrug.setDateOfIssue(LocalDate.parse(data));
             } else if (currentElement.equals(DrugTag.EXPIRATION_DATE.getTagName())) {
@@ -87,6 +85,8 @@ public class SaxParserHandler extends DefaultHandler {
                 currentDrug.setRegisteringOrganization(data);
             } else if (currentElement.equals(DrugTag.TYPE.getTagName())) {
                 currentDrug.setType(data);
+            } else if (currentElement.equals(DrugTag.PACKAGE_NUMBER.getTagName())) {
+                currentDrug.setPackageNumber(Integer.parseInt(data));
             } else if (currentElement.equals(DrugTag.PRICE.getTagName())) {
                 currentDrug.setPrice(Long.parseLong(data));
             } else if (currentElement.equals(DrugTag.DOSAGE.getTagName())) {
@@ -94,84 +94,11 @@ public class SaxParserHandler extends DefaultHandler {
             } else if (currentElement.equals(DrugTag.MULTIPLICITY.getTagName())) {
                 currentDrug.setMultiplicity(data);
             } else if(currentElement.equals(CHEMICAL_FORMULA.getTagName())){
-                ((ChemicalDrug) currentDrug).setChemicalformula(data);
+                ((ChemicalDrug) currentDrug).setChemicalFormula(data);
             } else if(currentElement.equals(PLANTS.getTagName())){
                 ((PlantDrug)currentDrug).setPlants(data);
             }
+            logger.log(Level.INFO,"read characters {}",currentElement);
         }
     }
 }
-
-
-
-//        }
-//            switch (currentTag) {
-//                case TAG_NAME:
-//                    currentDrug.setName(data);
-//                    break;
-//                case TAG_ANALOG:
-//                    currentDrug.setAnalog(data);
-//                    break;
-//                case TAG_GROUP:
-//                    currentDrug.setGroup(data);
-//                    break;
-//                case TAG_PHARM:
-//                    currentDrug.setPharm(data);
-//                    break;
-//                case TAG_VERSION:
-//                    String version = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-//                    currentDrug.setVersion(Version.valueOf(version));
-//                    break;
-//                case TAG_NUMBER:
-//                    String number = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-//                    currentDrug.setNumber(Long.parseLong(number));
-//                    break;
-//                case TAG_DATA_OF_ISSUE:
-//                    String dateOfIssue = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-//                    currentDrug.setDateOfIssue(LocalDate.parse(dateOfIssue));
-//                    break;
-//                case TAG_EXPIRATION_DATE:
-//                    String expirationDate = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-//                    currentDrug.setExpirationDate(LocalDate.parse(expirationDate));
-//                    break;
-//                case TAG_REGISTERING_ORGANIZATION:
-//                    currentDrug.setRegisteringOrganization(data);
-//                    break;
-//                case TAG_TYPE:
-//                    currentDrug.setType(data);
-//                    break;
-//                case TAG_PACKAGE_NUMBER:
-//                    String packageNumber = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-//                    currentDrug.setPackageNumber(Integer.parseInt(packageNumber));
-//                    break;
-//                case TAG_PRICE:
-//                    String price = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-//                    currentDrug.setPrice(Long.parseLong(price));
-//                    break;
-//                case TAG_DOSAGE:
-//                    String dosage = data.toUpperCase(Locale.ROOT).replace(HIGH, UNDER);
-//                    currentDrug.setDosage(Long.parseLong(dosage));
-//                    break;
-//                case TAG_MULTIPLICITY:
-//                    currentDrug.setMultiplicity(data);
-//                    break;
-//                case TAG_CHEMICAL_FORMULA:
-//                    ChemicalDrug tempChemicalDrug = (ChemicalDrug) currentDrug;
-//                    String chemicalFormula = data.toUpperCase(Locale.ROOT);
-//                    tempChemicalDrug.setChemicalformula(chemicalFormula);
-//                    break;
-//                case TAG_PLANT:
-//                    PlantDrug tempPlantDrug = (PlantDrug) currentDrug;
-//                    String plant = data.toUpperCase(Locale.ROOT);
-//                    tempPlantDrug.setPlants(plant);
-//                    break;
-//                default:
-//                    throw new EnumConstantNotPresentException(
-//                            currentTag.getDeclaringClass(), currentTag.name());
-//            }
-//            currentTag = null;
-//        }
-
-
-
-
